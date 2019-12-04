@@ -1,0 +1,12 @@
+---
+
+- name: Test connection to my server
+  hosts: all
+  become: yes
+  tasks:
+
+  - name: Install NTP Sync
+    yum : name=ntpdate state=latest -b
+	
+  - name: NTP Sync
+    shell: ntpdate 2.ua.pool.ntp.org -b
